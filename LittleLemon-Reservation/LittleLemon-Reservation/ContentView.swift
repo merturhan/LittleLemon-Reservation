@@ -9,10 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("Litte Lemon Reservation App")
+        
+        TabView{
+            Text("Locations View")
+                .tabItem({
+                    Label("Locations", systemImage: "fork.knife")
+                })
+            
+            Text("Reservation View")
+                .tabItem({
+                    Label("Reservation", systemImage: "square.and.pencil")
+                })
         }
-        .padding()
     }
 }
 
