@@ -9,7 +9,21 @@ import SwiftUI
 
 struct LocationsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        
+        
+        VStack{
+            LittleLemonLogo().padding(.top, 50)
+            
+            Button("Select a location"){
+                
+            }.buttonStyle(.bordered)
+                .foregroundColor(Color.black)
+                .cornerRadius(100)
+            
+            
+        }
+        
     }
 }
 

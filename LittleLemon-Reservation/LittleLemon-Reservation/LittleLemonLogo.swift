@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LittleLemonLogo.swift
 //  LittleLemon-Reservation
 //
 //  Created by Mert Urhan on 26.02.2023.
@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LittleLemonLogo: View {
     var body: some View {
-        
-        MainView()
+        Image("logo")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct LittleLemonLogo_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        LittleLemonLogo()
     }
 }
