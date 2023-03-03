@@ -8,27 +8,44 @@
 import SwiftUI
 
 struct LocationsView: View {
+    @EnvironmentObject var model:Model
     var body: some View {
-        
-        
-        
-        VStack{
-            LittleLemonLogo().padding(.top, 50)
+        VStack {
+            LittleLemonLogo() // 1
+                .padding(.top, 50)
             
-            Button("Select a location"){
+            
+            Text(model.displayingReservationForm ? "Reservation Details" : "Select a location")// 2
+            .padding([.leading, .trailing], 40)
+            .padding([.top, .bottom], 8)
+            .background(Color.gray.opacity(0.2))
+            .cornerRadius(20)
+            
+            NavigationView {
                 
-            }.buttonStyle(.bordered)
-                .foregroundColor(Color.black)
-                .cornerRadius(100)
-            
-            
+                List{
+                    ForEach (model.restaurants, id: \.self)
+                    { item in
+                           
+                            NavigationLink(destination: ReservationForm(item)){
+                                RestaurantView(item)
+                        }
+                        
+                        
+                    }
+                    
+                }
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+            }
         }
-        
+        .padding(.top, -10)
     }
 }
 
-struct LocationsView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LocationsView()
+        LocationsView().environmentObject(Model())
     }
 }
+
